@@ -1,39 +1,57 @@
-Serão 7 mini projetos que ao longo do semestre irão se complementar ate o sétimo onde será uma "versão final"
-Utilizando a ferramenta QtCreator na versão 17.0.0 com qmake.
+# 🖥️ Motor Gráfico 3D Interativo (Qt/C++)
 
+Este repositório contém a implementação de um **Motor Gráfico 3D** desenvolvido em C++ utilizando o framework Qt. O projeto permite a leitura, renderização e manipulação em tempo real de objetos tridimensionais, curvas e polígonos, suportando múltiplas projeções e recursos avançados de visualização geométrica.
 
-1) a) Implementar a lista de objetos virtuais (Display File) para pontos, retas e polıgonos;
-b) Visualizar os objetos do display file na interface do usuario; 
-c) No display file, os objetos devem ser representados em coordenadas de mundo e nao coordenadas de tela; 
-d) Cada objeto precisa ter em sua representacao: nome, tipo e lista de pontos;
-OBS.: Um mundo limitado ao tamanho da area de desenho da interface. Assim coordenadas de mundo e de
-desenho serao coincidentes.
+O projeto foi construído de forma iterativa, culminando na **Entrega 7**, que introduz técnicas complexas de rasterização, iluminação e otimização de profundidade.
 
-2)  devera implementar as transformacoes geometricas:
-a) Translacao de objetos da cena;
-b) Escala em torno do centro geometrico do objeto;
-c) Rotacao em torno de um ponto escolhidopelo usuario (sistemas de coordenadas do mundo!);
-OBS.1: As transformacoes aplicadas a um objeto nao podem afetar os demais. 
-OBS.2: E preciso demonstrar o uso de composicao de matrizes. 
-OBS.3: Nesse ponto ja da para perceber que usar as formas primitivas da biblioteca pode
-nao ser a melhor escolha. Entao e melhor re-presentar seus objetos como listas de pontos e arestas.
+---
 
-3) a) Implementar a window com coordenadas normalizadas. Modo mais pratico: dobrar as coordenadas dos objetos no display file;
-b) Acrescente algum mecanismo para modificar os parametros da window para ver o efeito na area de desenho. A cada mudanca o SCN precisa ser recalculado;
-c) Acrescente algum mecanismo para modificar os parametros da viewport para ver o efeito na area de desenho. A cada mudanca, a transformada de viewport precisa ser recalculada;
+## 👥 Desenvolvedores
 
-4) a) Implementar o clipping 2D em seu sistema de visualizacao; 
-b) Na area de desenho, desenhe uma moldura interna para representar sua viewport. O desenho do conteudo da window deve estar limitado a esta moldura. A parte entre a moldura e o limite da area de desenho precisa estar limpa;
-c) Modifique a window usando as transformac¸oes geometricas para ver o efeito em sua area de desenho. Use para isso, as operacoes de Rotacao, Translacao e Escala.
+| Nome | RA |
+| :--- | :--- |
+| **Murilo Albuquerque**
+| **Julia Yukari**
+| **Marcus Vinicius**
 
-5) a) Incluir a leitura de arquivo do tipo OBJ1.
-b) Escolha pelo menos dois pokemons diferentes para visualizar em seu projeto. Exemplos de modelos podem ser encontrados acessando: https://free3d.com/3dmodel/charizard-85299.html
-1. Uma boa documentacao pode ser encontrada em [5].
-c) Os pokemons devem ser inseridos nacena que voce ja criou nas outras entregas e visualizados ao mesmo tempo.
-d) Ajustar as transformacoes geometricas para 3D;
-e) Incluir a projecao ortogonal ao projeto de visualizacao;
+---
 
-6) devera incluir a projecao perspectiva ao projeto;
+## ✨ Destaques da Última Versão (Entrega 7)
 
-7) a) Fazer os arremates finais para a entrega do projeto;
-b) incluir na interface algum mecanismo para as transformacoes no objeto e navegacao de camera;
+Esta versão coroa o projeto com as seguintes implementações avançadas:
+
+* **Renderização Híbrida:** Capacidade de mesclar diferentes técnicas de renderização na mesma cena.
+* **Algoritmo do Pintor (Painter's Algorithm):** Ordenação dinâmica de profundidade para garantir que objetos mais distantes sejam desenhados antes dos mais próximos, corrigindo a sobreposição visual.
+* **Clipping Volumétrico:** Recorte preciso de objetos baseados nos limites do volume de visão (Frustum/Box).
+* **Iluminação e Sombras:** Sistema de luz integrado com projeção de sombras projetadas diretamente sobre o chão da cena.
+* **Câmera Interativa:** Controle fluido da câmera 3D diretamente através do mouse.
+* **Suporte a Curvas:** Criação e manipulação de Curvas (ex: Bezier) renderizadas no espaço 3D.
+
+---
+
+## 🛠️ Funcionalidades Base
+
+Além dos recursos avançados, o motor gráfico suporta as operações fundamentais de modelagem e visualização:
+
+### Manipulação de Malhas e Objetos
+* **Importação de Arquivos `.obj`:** Carregamento de malhas 3D (Wavefront OBJ) com leitura de vértices (`v`) e faces (`f`).
+* **Criação Dinâmica:** Geração manual de novos Polígonos e Curvas através da interface.
+* **Transformações Geométricas Locais e Globais:**
+    * Translação (dx, dy, dz).
+    * Escala (sx, sy, sz).
+    * Rotação nos três eixos (X, Y, Z).
+
+### Projeções e Visualização
+* **Projeção Perspectiva:** Com controle de Zoom e plano de corte frontal (`zNear`).
+* **Projeção Ortogonal:** Renderização planificada sem distorção de profundidade.
+* **Gerenciamento de Cores:** Atribuição automática de cores iterativas (Cyan, Magenta, Green, Red, etc.) para diferenciar objetos instanciados.
+
+> **⚠️ Nota de Comportamento Visual:** A renderização estrutural (vértices e arestas) de polígonos isolados ou retas apresentará diferenças visuais nativas ao alternar entre o modo Ortogonal e Perspectivo devido à matemática de projeção aplicada.
+
+---
+
+## 🚀 Como Executar o Projeto
+
+### Pré-requisitos
+* **Qt Creator** (Versão 5.x ou superior recomendada).
+* Compilador C++ compatível (MinGW, MSVC, ou GCC).
