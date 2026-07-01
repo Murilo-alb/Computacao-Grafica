@@ -8,8 +8,8 @@ O projeto foi construído de forma iterativa, culminando na **Entrega 7**, que i
 
 ## 👥 Desenvolvedores
 
-| Nome | RA |
-| :--- | :--- |
+| Nome 
+| :--- |
 | **Murilo Albuquerque**
 | **Julia Yukari**
 | **Marcus Vinicius**
